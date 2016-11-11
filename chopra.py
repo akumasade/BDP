@@ -221,7 +221,7 @@ text = [
     "mules",
     "birds",
     "sterile",
-    "plants"])
+    "plants"]
 
 
 
