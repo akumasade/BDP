@@ -208,20 +208,5 @@ text = [
     "brains",
     "phenomena",
     "miracles",
-    "observations",
-    "Dogs",
-    "Cats",
-    "Mice",
-    "Rats",
-    "Elephants",
-    "Kittens",
-    "insects",
-    "horses",
-    "llamas",
-    "mules",
-    "birds",
-    "sterile",
-    "plants"]
-
-
+    "observations",]
 
