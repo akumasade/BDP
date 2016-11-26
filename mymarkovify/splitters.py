@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*- 
 import re
+from nltk import tokenize
 
 ascii_lowercase = "abcdefghijklmnopqrstuvwxyz"
 ascii_uppercase = ascii_lowercase.upper()
+sent_tokenizer = tokenize.PunktSentenceTokenizer()
 
 # States w/ with thanks to https://github.com/unitedstates/python-us
 # Titles w/ thanks to https://github.com/nytimes/emphasis and @donohoe
@@ -18,7 +20,7 @@ abbr_capped = "|".join([
 abbr_lowercase = "etc|v|vs|viz|al|pct"
 
 exceptions = "U.S.|U.N.|E.U.|F.B.I.|C.I.A.".split("|")
-
+'''
 def is_abbreviation(dotted_word):
     clipped = dotted_word[:-1]
     if clipped[0] in ascii_uppercase:
@@ -51,3 +53,11 @@ def split_into_sentences(text):
     spans = zip([None] + end_indices, end_indices + [None])
     sentences = [ text[start:end].strip() for start, end in spans ]
     return sentences
+'''
+
+def split_into_sentences(text):
+    return sent_tokenizer.tokenize(text)
+
+
+
+
