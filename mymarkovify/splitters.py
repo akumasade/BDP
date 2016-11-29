@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*- 
-import re
-from nltk import tokenize
-
 '''
+import re
+
 ascii_lowercase = "abcdefghijklmnopqrstuvwxyz"
 ascii_uppercase = ascii_lowercase.upper()
-sent_tokenizer = tokenize.PunktSentenceTokenizer()
 
 # States w/ with thanks to https://github.com/unitedstates/python-us
 # Titles w/ thanks to https://github.com/nytimes/emphasis and @donohoe
@@ -55,6 +53,9 @@ def split_into_sentences(text):
     sentences = [ text[start:end].strip() for start, end in spans ]
     return sentences
 '''
+
+from nltk import tokenize
+sent_tokenizer = tokenize.PunktSentenceTokenizer()
 
 def split_into_sentences(text):
     return sent_tokenizer.tokenize(text)

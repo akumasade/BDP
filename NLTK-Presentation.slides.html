@@ -11850,8 +11850,12 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="NLTK">NLTK<a class="anchor-link" href="#NLTK">&#182;</a></h2><p>"NLTK is a leading platform for building Python programs to work with human language data. It provides easy-to-use interfaces to over 50 corpora and lexical resources such as WordNet, along with a suite of text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning, wrappers for industrial-strength NLP libraries, and an active discussion forum."</p>
-<p><a href="http://www.nltk.org/">Read More</a></p>
+<h2 id="Natural-Language-ToolKit"><a href="http://www.nltk.org/">Natural Language ToolKit</a><a class="anchor-link" href="#Natural-Language-ToolKit">&#182;</a></h2><ul>
+<li>Python module for NLP</li>
+<li>Provides interfaces to over 50 corpora and lexical resources</li>
+<li>Tools for tokenization, stemming, tagging, parsing, andd semantic reasoning</li>
+<li>Wrappers</li>
+</ul>
 
 </div>
 </div>
@@ -11866,17 +11870,54 @@ a.anchor-link {
 <li>Split strings into substrings</li>
 <li>Separate into sentences, identifies where they start and stop</li>
 </ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Tokenize by sentence:
 Doesn’t just depend on punctuation since recent decades have much more ambiguous punctuation usage (emoticons, abbreviations etc.)</p>
 
 </div>
 </div>
-</div>>>> text = “this’s a sent tokenize test. this is sent two. is this sent three? sent 4 is cool! Now it’s your turn.”
->>> from nltk.tokenize import sent_tokenize
->>> sent_tokenize_list = sent_tokenize(text)
->>> sent_tokenize_list
-[“this’s a sent tokenize test.”, ‘this is sent two.’, ‘is this sent three?’, ‘sent 4 is cool!’, “Now it’s your turn.”]
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;this is a sent tokenize test. this is sent two. is this sent three? sent 4 is cool! Now it is your turn.&quot;</span>
+
+<span class="n">sent_tokenize_list</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">sent_tokenize_list</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;this is a sent tokenize test.&#39;, &#39;this is sent two.&#39;, &#39;is this sent three?&#39;, &#39;sent 4 is cool!&#39;, &#39;Now it is your turn.&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11886,10 +11927,34 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 
 </div>
 </div>
-</div>>>> from nltk.tokenize import word_tokenize
->>> word_tokenize(‘Hello World.’)
-[‘Hello’, ‘World’, ‘.’]
-</section></section><section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s1">&#39;Hello World.&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Hello&#39;, &#39;World&#39;, &#39;.&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -11909,37 +11974,15 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 
 </div>
 </div>
-</div>>>> text = nltk.word_tokenize(“Dive into NLTK: Part-of-speech tagging and POS Tagger”)
->>> nltk.pos_tag(text)
-[(‘Dive’, ‘JJ’), (‘into’, ‘IN’), (‘NLTK’, ‘NNP’), (‘:’, ‘:’), (‘Part-of-speech’, ‘JJ’), (‘tagging’, ‘NN’), (‘and’, ‘CC’), (‘POS’, ‘NNP’), (‘Tagger’, ‘NNP’)] </section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stemming">Stemming<a class="anchor-link" href="#Stemming">&#182;</a></h2><p>Stemming is the the process of reducing a word to its stem through basic suffix stripping. For instance, the stem of the word “lively” is “live”, so running a the statement “She acted lively while helping me today.” through a stemmer (after tokenizing), would return the stems ‘act’, ‘live’, and ‘help’ with their respective words, while the rest of the words would just return the initial input (the words were already at their stem).</p>
-<p>Some common stemmers:</p>
-<ul>
-<li><p>Snowball : <a href="http://www.nltk.org/_modules/nltk/stem/snowball.html">http://www.nltk.org/_modules/nltk/stem/snowball.html</a></p>
-</li>
-<li><p>Porter : <a href="http://www.nltk.org/_modules/nltk/stem/porter.html">http://www.nltk.org/_modules/nltk/stem/porter.html</a></p>
-</li>
-<li><p>Lancaster : <a href="http://www.nltk.org/_modules/nltk/stem/lancaster.html">http://www.nltk.org/_modules/nltk/stem/lancaster.html</a></p>
-</li>
-</ul>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">snowball</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">snowball</span><span class="o">.</span><span class="n">EnglishStemmer</span><span class="p">()</span>
-<span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;expectations&#39;</span>
-<span class="k">print</span> <span class="s2">&quot;The stem of &#39;</span><span class="si">%s</span><span class="s2">&#39; is &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">snowball</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s1">&#39;Dive into NLTK: Part-of-speech tagging and POS Tagger&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11952,7 +11995,7 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The stem of &#39;expectations&#39; is &#39;expect&#39;.
+<pre>[(&#39;Dive&#39;, &#39;NNP&#39;), (&#39;into&#39;, &#39;IN&#39;), (&#39;NLTK&#39;, &#39;NNP&#39;), (&#39;:&#39;, &#39;:&#39;), (&#39;Part-of-speech&#39;, &#39;JJ&#39;), (&#39;tagging&#39;, &#39;NN&#39;), (&#39;and&#39;, &#39;CC&#39;), (&#39;POS&#39;, &#39;NNP&#39;), (&#39;Tagger&#39;, &#39;NNP&#39;)]
 </pre>
 </div>
 </div>
@@ -11966,21 +12009,63 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Porter-Algorithm">Porter Algorithm<a class="anchor-link" href="#Porter-Algorithm">&#182;</a></h2><p>Porter's stemming algorithm consists of 5 phases of word reduction applied sequentially.</p>
-<p>For instance:</p>
-$$SSES \rightarrow SS \\ caress \rightarrow care$$<p><br />
-$$S \rightarrow \\ cats \rightarrow cat$$</p>
-<p><a href="http://snowball.tartarus.org/algorithms/porter/stemmer.html">Read More</a></p>
+<h2 id="Stemming">Stemming<a class="anchor-link" href="#Stemming">&#182;</a></h2><p>Stemming is the the process of reducing a word to its stem through basic suffix stripping. For instance, the stem of the word “lively” is “live”, so running a the statement “She acted lively while helping me today.” through a stemmer (after tokenizing), would return the stems ‘act’, ‘live’, and ‘help’ with their respective words, while the rest of the words would just return the initial input (the words were already at their stem).</p>
+<p>Some common stemmers:</p>
+<ul>
+<li><p><a href="http://www.nltk.org/_modules/nltk/stem/snowball.html">Snowball</a></p>
+</li>
+<li><p><a href="http://www.nltk.org/_modules/nltk/stem/porter.html">Porter</a></p>
+</li>
+<li><p><a href="http://www.nltk.org/_modules/nltk/stem/lancaster.html">Lancaster</a></p>
+</li>
+</ul>
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">porter</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">porter</span><span class="o">.</span><span class="n">PorterStemmer</span><span class="p">()</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dogs&#39;</span><span class="p">,</span> <span class="s1">&#39;creationism&#39;</span><span class="p">,</span> <span class="s1">&#39;ate&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s2">&quot;The stem of &#39;</span><span class="si">%s</span><span class="s2">&#39; is &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">porter</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The stem of &#39;dogs&#39; is &#39;dog&#39;.
+The stem of &#39;creationism&#39; is &#39;creation&#39;.
+The stem of &#39;ate&#39; is &#39;ate&#39;.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A problem that arises is that, for many cases, the stemmers will not return actual words. For instance, the stem of the words “excitement” and “excited” are both “excit”. Stemming is sufficient in many cases of interpreting the meaning of texts, but a better option in terms of meaning, is lemmatization.</p>
+<h2 id="Porter-Algorithm"><a href="http://snowball.tartarus.org/algorithms/porter/stemmer.html">Porter Algorithm</a><a class="anchor-link" href="#Porter-Algorithm">&#182;</a></h2><p>Porter's stemming algorithm consists of 5 phases of word reduction applied sequentially.</p>
+<p>For instance:</p>
+$$SSES \rightarrow SS \\ caress \rightarrow care$$<p><br />
+$$S \rightarrow \\ cats \rightarrow cat$$</p>
 
 </div>
 </div>
@@ -11990,10 +12075,45 @@ $$S \rightarrow \\ cats \rightarrow cat$$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lemmatization">Lemmatization<a class="anchor-link" href="#Lemmatization">&#182;</a></h2><p>Lemmatization, on the other hand, is the reducing of a word to a common base word, known as the lemma. For instance, the word “excitement” reduces to the lemma “excite”, but also the words “are”, “am” and “is” reduce to the lemma “be”.</p>
+<h2 id="Lemmatization">Lemmatization<a class="anchor-link" href="#Lemmatization">&#182;</a></h2><p>A problem that arises is that, for many cases, the stemmers will not return actual words. For instance, the stem of the words “excitement” and “excited” are both “excit”. Stemming is sufficient in many cases of interpreting the meaning of texts, but a better option in terms of meaning, is lemmatization.</p>
+<p>Lemmatization, on the other hand, is the reducing of a word to a common base word, known as the lemma. For instance, the word “excitement” reduces to the lemma “excite”, but also the words “are”, “am” and “is” reduce to the lemma “be”.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="n">wordnet_lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+<span class="n">taggedwords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dogs&#39;</span><span class="p">:</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;creationism&#39;</span><span class="p">:</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;ate&#39;</span><span class="p">:</span><span class="s1">&#39;v&#39;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">taggedwords</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s2">&quot;The lemma of &#39;</span><span class="si">%s</span><span class="s2">&#39; is &#39;</span><span class="si">%s</span><span class="s2">&#39;.&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">wordnet_lemmatizer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">taggedwords</span><span class="p">[</span><span class="n">word</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The lemma of &#39;ate&#39; is &#39;eat&#39;.
+The lemma of &#39;dogs&#39; is &#39;dog&#39;.
+The lemma of &#39;creationism&#39; is &#39;creationism&#39;.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12001,24 +12121,21 @@ $$S \rightarrow \\ cats \rightarrow cat$$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Text-Generator-w/-Markov-Chains">Text Generator w/ Markov Chains<a class="anchor-link" href="#Text-Generator-w/-Markov-Chains">&#182;</a></h2><p>Based off of <a href="https://github.com/jsvine/markovify">markovify python module</a></p>
-<p>(pip install markovify)</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># %load ./mymarkovify/splitters.py</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">tokenize</span>
-
 <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">import re</span>
+
 <span class="sd">ascii_lowercase = &quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
 <span class="sd">ascii_uppercase = ascii_lowercase.upper()</span>
-<span class="sd">sent_tokenizer = tokenize.PunktSentenceTokenizer()</span>
 
 <span class="sd"># States w/ with thanks to https://github.com/unitedstates/python-us</span>
 <span class="sd"># Titles w/ thanks to https://github.com/nytimes/emphasis and @donohoe</span>
@@ -12069,6 +12186,9 @@ $$S \rightarrow \\ cats \rightarrow cat$$</p>
 <span class="sd">    return sentences</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">tokenize</span>
+<span class="n">sent_tokenizer</span> <span class="o">=</span> <span class="n">tokenize</span><span class="o">.</span><span class="n">PunktSentenceTokenizer</span><span class="p">()</span>
+
 <span class="k">def</span> <span class="nf">split_into_sentences</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">sent_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
@@ -12080,21 +12200,23 @@ $$S \rightarrow \\ cats \rightarrow cat$$</p>
 </div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">extract</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
+<span class="c1">#Extract text as a string</span>
 <span class="n">cleantext</span> <span class="o">=</span> <span class="n">extract</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;./ChopraEdited&quot;</span><span class="p">)</span>
 
+<span class="c1">#Looking at the size of our data set</span>
 <span class="n">stoken</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">PunktSentenceTokenizer</span><span class="p">()</span>
 <span class="n">wtoken</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">WordPunctTokenizer</span><span class="p">()</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">stoken</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">cleantext</span><span class="p">)</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">wtoken</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">cleantext</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="s2">&quot; words&quot;</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="s2">&quot;sentences&quot;</span>
 </pre></div>
 
 </div>
@@ -12116,7 +12238,8 @@ $$S \rightarrow \\ cats \rightarrow cat$$</p>
 ./ChopraEdited/Chopra-Deepak-superbrain_Clean.pdf
 ./ChopraEdited/Chopra-Deepak-the-7-laws-of-success_Clean.pdf
 Done Reading.
-258477 13051
+258477  words
+13051 sentences
 </pre>
 </div>
 </div>
@@ -12127,7 +12250,7 @@ Done Reading.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">mymarkovify</span>
@@ -12143,7 +12266,7 @@ Done Reading.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#print n generated sentences</span>
@@ -12162,25 +12285,25 @@ Done Reading.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1. Can we truly satisfy the demands of our egos, who want to grab the love and attention that used to be seen by the eyes as photons, it doesn&#39;t suddenly jump into material existence.
+<pre>1. In a state of being in the movie, outside the move, and the movie itself.
 
-2. Sometimes the connections are faultI might have come up with the fewest delays, obstacles, and backslidinadopting the right belief is much more elusive and even mystical.
+2. As it happens, I didn&#39;t have any awareness of it.
 
-3. Now slowly lower both legs to the floor.
+3. Nothing gets past us, no matter how obviously they deserve it, remind yourself that self-acceptance is the source of all that exists is not an option.
 
-4. It is inevitable that you will escape from evil.
+4. You can create anything because you are in stage five can make every wish come true, the ones that should come true matter more.
 
-5. Many of India&#39;s saints strike me with less than wonder, and I have a separate stake in the world, you are aligned with your creative juices, the expressions that emerge arise effortlessly.
+5. Although this cycle expresses itself in many ways, but this one says something about our stage one God.
 
-6. To a co-creator, life has a tendency to show up in the word It.
+6. If you perform asanas regularly, you will feel more guilty, adding to the burden of failure.
 
-7. To reach this state of innocence would be impossible if he didn&#39;t want to be known.
+7. Next you will likely experience the return of worries, whatever is hanging over your head and leg to theoor while exhaling.
 
-8. A stranger makes you feel like a choice anymore.
+8. Recognizing this, Shankara named the physical body and mind come together.
 
-9. Karma is just experiences that make for a healing relationship is that life is a miracle; God works through me, my greatest joy is service to him.
+9. We have outgrown the need for creative expression and renewal.
 
-10. At her age Tars life is all ups and downs.
+10. By going inside yourself, you can access wisdom and knowledge about anything in creation.
 
 </pre>
 </div>
@@ -12212,8 +12335,7 @@ Done Reading.
 
 </div>
 </div>
-</div><aside class="notes">
-
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12227,8 +12349,7 @@ $$ P(C|x) = \frac{P(x|C) P(C)}{P(x)} $$<p>Naive Bayes Classification :</p>
 
 </div>
 </div>
-</div>
-</aside>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
