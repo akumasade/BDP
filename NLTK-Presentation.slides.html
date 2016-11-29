@@ -11840,6 +11840,8 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="What-is-Natural-Language-Processing?">What is Natural Language Processing?<a class="anchor-link" href="#What-is-Natural-Language-Processing?">&#182;</a></h2><p>"Natural language processing is a field of computer science, artificial intelligence, and computational linguistics concerned with the interactions between computers and human (natural) languages." -<a href="https://en.wikipedia.org/wiki/Natural_language_processing">Wikipedia</a></p>
+<p>Natural Language Processing is the way for computers to process the human spoken and written language for analysis.</p>
+<p>Link: <a href="http://www.theatlantic.com/entertainment/archive/2016/03/mfa-creative-writing/462483/">'How Has the MFA Changed the Contemporary Novel?</a></p>
 <p>Link: <a href="http://wisdomofchopra.com/">Wisdom of Chopra</a></p>
 
 </div>
@@ -11854,8 +11856,20 @@ a.anchor-link {
 <li>Python module for NLP</li>
 <li>Provides interfaces to over 50 corpora and lexical resources</li>
 <li>Tools for tokenization, stemming, tagging, parsing, andd semantic reasoning</li>
-<li>Wrappers</li>
+<li>Wrappers for industrial-strength NLP libraries</li>
+<li>An intuitive and streamlined way to using NLP with Python</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Example-NLP-Pipeline-for-NLTK">Example NLP Pipeline for NLTK<a class="anchor-link" href="#Example-NLP-Pipeline-for-NLTK">&#182;</a></h2><p><img src="./pipeline1.png" alt="title"></p>
+<p><a href="http://www.nltk.org/book/ch03.html">Image source</a></p>
 
 </div>
 </div>
@@ -11870,6 +11884,11 @@ a.anchor-link {
 <li>Split strings into substrings</li>
 <li>Separate into sentences, identifies where they start and stop</li>
 </ul>
+<h3 id="For-example,-the-Punkt-tokenizer:-(from-docstring)">For example, the Punkt tokenizer: (from docstring)<a class="anchor-link" href="#For-example,-the-Punkt-tokenizer:-(from-docstring)">&#182;</a></h3><p>This tokenizer divides a text into a list of sentences,
+by using an unsupervised algorithm to build a model for abbreviation
+words, collocations, and words that start sentences.  It must be
+trained on a large collection of plaintext in the target language
+before it can be used.</p>
 
 </div>
 </div>
@@ -11879,8 +11898,10 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Tokenize by sentence:
-Doesn’t just depend on punctuation since recent decades have much more ambiguous punctuation usage (emoticons, abbreviations etc.)</p>
+<h2 id="Tokenize-by-sentence:">Tokenize by sentence:<a class="anchor-link" href="#Tokenize-by-sentence:">&#182;</a></h2><ul>
+<li>Doesn’t just depend on punctuation since recent decades have much more ambiguous punctuation usage (emoticons, abbreviations etc.)</li>
+<li>Depends on the pre-trained 'tokenizer', e.g, Punkt, Stanford, Regex etc</li>
+</ul>
 
 </div>
 </div>
@@ -11892,7 +11913,7 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;this is a sent tokenize test. this is sent two. is this sent three? sent 4 is cool! Now it is your turn.&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;This is PHYST480 Big Data class. Natural language processing with the Natural Language Tool Kit module. Much machine learning. So wow.&quot;</span>
 
 <span class="n">sent_tokenize_list</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
@@ -11909,7 +11930,7 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;this is a sent tokenize test.&#39;, &#39;this is sent two.&#39;, &#39;is this sent three?&#39;, &#39;sent 4 is cool!&#39;, &#39;Now it is your turn.&#39;]
+<pre>[&#39;This is PHYST480 Big Data class.&#39;, &#39;Natural language processing with the Natural Language Tool Kit module.&#39;, &#39;Much machine learning.&#39;, &#39;So wow.&#39;]
 </pre>
 </div>
 </div>
@@ -11923,7 +11944,10 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Tokenize by word: (simpler than sentence tokenizer)</p>
+<h2 id="Tokenize-by-word">Tokenize by word<a class="anchor-link" href="#Tokenize-by-word">&#182;</a></h2><ul>
+<li>Splits string by word</li>
+<li>Punkt tokenizer also has word tokenization</li>
+</ul>
 
 </div>
 </div>
@@ -11980,7 +12004,7 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s1">&#39;Dive into NLTK: Part-of-speech tagging and POS Tagger&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="s1">&#39;The cake is a lie.&#39;</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
@@ -11995,7 +12019,7 @@ Doesn’t just depend on punctuation since recent decades have much more ambiguo
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[(&#39;Dive&#39;, &#39;NNP&#39;), (&#39;into&#39;, &#39;IN&#39;), (&#39;NLTK&#39;, &#39;NNP&#39;), (&#39;:&#39;, &#39;:&#39;), (&#39;Part-of-speech&#39;, &#39;JJ&#39;), (&#39;tagging&#39;, &#39;NN&#39;), (&#39;and&#39;, &#39;CC&#39;), (&#39;POS&#39;, &#39;NNP&#39;), (&#39;Tagger&#39;, &#39;NNP&#39;)]
+<pre>[(&#39;The&#39;, &#39;DT&#39;), (&#39;cake&#39;, &#39;NN&#39;), (&#39;is&#39;, &#39;VBZ&#39;), (&#39;a&#39;, &#39;DT&#39;), (&#39;lie&#39;, &#39;NN&#39;), (&#39;.&#39;, &#39;.&#39;)]
 </pre>
 </div>
 </div>
@@ -12083,7 +12107,7 @@ $$S \rightarrow \\ cats \rightarrow cat$$</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
@@ -12230,16 +12254,16 @@ The lemma of &#39;creationism&#39; is &#39;creationism&#39;.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Reading files...
+./ChopraEdited/Chopra-Deepak-Book-Of-Secrets_Clean.pdf
 ./ChopraEdited/DeepakChopra_Interview_Clean.pdf
 ./ChopraEdited/Chopra-Deepak-the_seven_spiritual_laws_of_yoga_Clean.pdf
-./ChopraEdited/Chopra-Deepak-How-To-Know-God_Clean.pdf
-./ChopraEdited/Chopra-Deepak-Book-Of-Secrets_Clean.pdf
-./ChopraEdited/DeepakChopra_Quotes_Clean.pdf
 ./ChopraEdited/Chopra-Deepak-superbrain_Clean.pdf
+./ChopraEdited/DeepakChopra_Quotes_Clean.pdf
 ./ChopraEdited/Chopra-Deepak-the-7-laws-of-success_Clean.pdf
+./ChopraEdited/Chopra-Deepak-How-To-Know-God_Clean.pdf
 Done Reading.
-258477  words
-13051 sentences
+258456  words
+13050 sentences
 </pre>
 </div>
 </div>
@@ -12266,7 +12290,7 @@ Done Reading.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#print n generated sentences</span>
@@ -12285,25 +12309,25 @@ Done Reading.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1. In a state of being in the movie, outside the move, and the movie itself.
+<pre>1. Pay attention to your breath and your mind.
 
-2. As it happens, I didn&#39;t have any awareness of it.
+2. With a magnifying glass you would see that the answer could be as simple as simply learning to be.
 
-3. Nothing gets past us, no matter how obviously they deserve it, remind yourself that self-acceptance is the source of all that exists is not an option.
+3. My actions and thoughts are drawing on God&#39;s force field, as if we are to have any confidence in them.
 
-4. You can create anything because you are in stage five can make every wish come true, the ones that should come true matter more.
+4. With the loss of unity.
 
-5. Although this cycle expresses itself in many ways, but this one says something about our stage one God.
+5. One can think of a photon as the archetype of all energy in the non local domain of our collective consciousness.
 
-6. If you perform asanas regularly, you will feel more guilty, adding to the burden of failure.
+6. Few people accept it, and those who want to grab the love and attention that used to be saffron-robed monks in meditation before dawn.
 
-7. Next you will likely experience the return of worries, whatever is hanging over your head and leg to theoor while exhaling.
+7. Ten years ago, it would have made no difference to the matter.
 
-8. Recognizing this, Shankara named the physical body and mind come together.
+8. As it happens, I didn&#39;t have any awareness of being a co-creator.
 
-9. We have outgrown the need for creative expression and renewal.
+9. So do not think that when you succeed at doing this, you will be surprised how much easier it becomes in the future to flow into the present.
 
-10. By going inside yourself, you can access wisdom and knowledge about anything in creation.
+10. Each of us is many people; you can define this in terms of what a person wants to achieve: 1.
 
 </pre>
 </div>
@@ -12379,6 +12403,17 @@ $$ P(C|x) = \frac{P(x|C) P(C)}{P(x)} $$<p>Naive Bayes Classification :</p>
 <ul>
 <li>Integrating NLP techniques with Artificial Intelligence</li>
 </ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Thank-you!">Thank you!<a class="anchor-link" href="#Thank-you!">&#182;</a></h1><h2 id="Questions?">Questions?<a class="anchor-link" href="#Questions?">&#182;</a></h2><p><img src="./Cubs.png" alt="title"></p>
+<p><a href="http://webarebears.wikia.com/wiki/The_Bears">Image source</a></p>
 
 </div>
 </div>
