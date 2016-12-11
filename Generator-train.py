@@ -8,8 +8,8 @@ import cPickle as pickle
 
 # Directory from which we are going to train our model on
 
-readfrom = "./twitter_samples"
-#readfrom = "./ChopraEdited"
+#readfrom = "./twitter_samples"
+readfrom = "./ChopraEdited"
 cleantext = extract.read(directory = readfrom)
 
 #Looking at the size of our data set

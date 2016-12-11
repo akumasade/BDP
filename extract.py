@@ -38,12 +38,17 @@ def extract_tweets(path):
 
     text = ""
     for item in dict_list:
+        '''
         try:
             tweet = item["text"]
             #filter(lambda x: x in set(string.printable), tweet)
             text += text
         except UnicodeEncodeError:
             pass
+        '''
+        tweet = str(item["text"].encode('ascii', 'ignore'))
+        #filter(lambda x: x in set(string.printable), tweet)
+        text += tweet
 
     return text
 
@@ -76,6 +81,7 @@ def read(directory = default_dir):
     For some reason the ASCII filter didn't work,
     so now we're just manually removing the non-ASCII chars.
     """
+    '''
     cleanstring = ""
     prev = 0
     for i,j in enumerate(alltext):
@@ -83,4 +89,8 @@ def read(directory = default_dir):
             cleanstring += alltext[prev:i-1]
             prev = i+1
 
+
     return cleanstring #clean string for training
+    '''
+
+    return alltext
