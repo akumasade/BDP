@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 '''
 import re
 
@@ -54,12 +54,8 @@ def split_into_sentences(text):
     return sentences
 '''
 
-from nltk import tokenize
-sent_tokenizer = tokenize.PunktSentenceTokenizer()
+from nltk.tokenize import PunktSentenceTokenizer
+sent_tokenizer = PunktSentenceTokenizer()
 
 def split_into_sentences(text):
     return sent_tokenizer.tokenize(text)
-
-
-
-
