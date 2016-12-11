@@ -7,9 +7,12 @@ import numpy as np
 import cPickle as pickle
 
 # Directory from which we are going to train our model on
+#readfrom = ./TrainingCorpora/twitter_samples
+#readfrom = "./TrainingCorpora/ChopraEdited"
+readfrom = "./TrainingCorpora/Richards_papers"
 
-#readfrom = "./twitter_samples"
-readfrom = "./ChopraEdited"
+
+#Read all the text
 cleantext = extract.read(directory = readfrom)
 
 #Looking at the size of our data set

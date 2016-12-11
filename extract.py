@@ -4,8 +4,7 @@ import os, string, json, textract, mymarkovify
 
 # Directory from which we are going to train our model on
 
-default_dir = "./twitter_samples"
-#default_dir = "./ChopraEdited"
+default_dir = "./TrainingCorpora/twitter_samples"
 
 def extract_pdf(path):
     """
