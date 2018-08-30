@@ -1,5 +1,7 @@
-# BDP
-All the files relevant to our Big Data Project
+# Big Data Physics Project
+Keziah Sheldon, Eesha Das Gupta, Rachel Buttry
+
+This repo holds all the files relevant to our project for our Big Data Physics course.
 
 ### File --- Description
 NLTK-Presentation.ipynb --- Jupyter Notebook on NLTK (Presented in PHYS-T480)
